@@ -1,12 +1,10 @@
 package com.second.olderjpa.contorller;
 
-import com.second.olderjpa.Entity.BodyDataEntity;
+import com.second.olderjpa.entity.BodyDataEntity;
 import com.second.olderjpa.repository.BodyDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.web.PageableDefault;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

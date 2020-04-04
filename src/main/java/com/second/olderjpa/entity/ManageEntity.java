@@ -1,6 +1,5 @@
-package com.second.olderjpa.Entity;
+package com.second.olderjpa.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -10,7 +9,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "t_manage")
-public class ManageEntity implements Serializable {
+public class ManageEntity {
     //id 用int 时间用date  其它char
     //管理员：
     @Id

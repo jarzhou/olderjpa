@@ -1,71 +1,80 @@
-package com.second.olderjpa.Entity;
+package com.second.olderjpa.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Data;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.xml.soap.Text;
-import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "t_body")
-public class BodyDataEntity implements Serializable {
+public class BodyDataEntity{
     //id 用int 时间用date 其它char
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "bodyId" ,nullable = false)
+    @Column(name = "body_id" ,nullable = false)
     private Integer bodyId;
 
     @Column(nullable = false,length = 255)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date dataDate;
+
     //老人id
     @ManyToOne
-    @JoinColumn(name = "department_id", nullable = false)
+    @JoinColumn(name = "older_id", nullable = false)
     private OlderEntity OlderEntity;
+
     //身高
     @Column(nullable = true,length = 40)
     private String tall;
-    //体重
 
+    //体重
     @Column(nullable = true,length = 40)
     private String weight;
     //
     @Column(nullable = true,length = 40)
     private String bmi;
+
     //体脂率
     @Column(nullable = true,length = 40)
     private String fatPercentage;
+
     //肌肉含量
     @Column(nullable = true,length = 40)
     private String muscleContent;
+
     //内脏脂肪：
     @Column(nullable = true,length = 40)
     private String visceralFat;
+
     //基础代谢:
     @Column(nullable = true,length = 40)
     private  String basalMetabolism;
+
     //骨量：
     @Column(nullable = true,length = 40)
     private String boneMass;
+
     //水分；
     @Column(nullable = true,length = 40)
     private String waterContent;
+
     //心率：
     @Column(nullable = true,length = 40)
     private String heartRate;
+
     //睡眠时长
     @Column(nullable = true,length = 40)
     private String sleepTime;
+
     //身体评估：
     @Column(nullable = true,length = 40)
     private String physicalAssessment;
+
     //char(表5：康养策略：)ABCDEABCD
     @Column(nullable = true,length = 40)
     private String systemStrategy;
+
     //管理员评估与建议：
     @Lob
     @Column(columnDefinition="TEXT",nullable = true)
@@ -87,11 +96,11 @@ public class BodyDataEntity implements Serializable {
         this.dataDate = dataDate;
     }
 
-    public com.second.olderjpa.Entity.OlderEntity getOlderEntity() {
+    public com.second.olderjpa.entity.OlderEntity getOlderEntity() {
         return OlderEntity;
     }
 
-    public void setOlderEntity(com.second.olderjpa.Entity.OlderEntity olderEntity) {
+    public void setOlderEntity(com.second.olderjpa.entity.OlderEntity olderEntity) {
         OlderEntity = olderEntity;
     }
 

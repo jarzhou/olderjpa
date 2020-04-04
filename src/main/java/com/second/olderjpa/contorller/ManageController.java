@@ -1,7 +1,7 @@
 package com.second.olderjpa.contorller;
 
 
-import com.second.olderjpa.Entity.ManageEntity;
+import com.second.olderjpa.entity.ManageEntity;
 import com.second.olderjpa.repository.ManageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
