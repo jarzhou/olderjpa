@@ -1,5 +1,6 @@
 package com.second.olderjpa.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -14,9 +15,9 @@ public class BodyDataEntity{
     @Column(name = "body_id" ,nullable = false)
     private Integer bodyId;
 
-    @Column(nullable = false,length = 255)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @Column(nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date dataDate;
 
     //老人id

@@ -3,7 +3,7 @@ import javax.persistence.*;
 import javax.xml.soap.Text;
 
 @Entity
-@Table
+@Table(name = "t_bmi")
 public class BmiEntity {
     //id 用int 时间用date  其它char
     @Id
@@ -12,9 +12,9 @@ public class BmiEntity {
 
     //数值区间：30+—20；
     @Column(nullable = false,length = 40)
-    private String minValue;
+    private Float minValue;
     @Column(nullable = false,length = 40)
-    private String maxValue;
+    private Float maxValue;
 
     //评级：
     @Column(nullable = false,length = 40)
@@ -24,7 +24,7 @@ public class BmiEntity {
     //针对策略：text
     @Lob
     @Column(columnDefinition="TEXT",nullable = true)
-    private Text targetingStrategy;
+    private String targetingStrategy;
 
     public Integer getBmiId() {
         return bmiId;
@@ -34,19 +34,19 @@ public class BmiEntity {
         this.bmiId = bmiId;
     }
 
-    public String getMinValue() {
+    public Float getMinValue() {
         return minValue;
     }
 
-    public void setMinValue(String minValue) {
+    public void setMinValue(Float minValue) {
         this.minValue = minValue;
     }
 
-    public String getMaxValue() {
+    public Float getMaxValue() {
         return maxValue;
     }
 
-    public void setMaxValue(String maxValue) {
+    public void setMaxValue(Float maxValue) {
         this.maxValue = maxValue;
     }
 
@@ -58,11 +58,11 @@ public class BmiEntity {
         this.judgeLevel = judgeLevel;
     }
 
-    public Text getTargetingStrategy() {
+    public String getTargetingStrategy() {
         return targetingStrategy;
     }
 
-    public void setTargetingStrategy(Text targetingStrategy) {
+    public void setTargetingStrategy(String targetingStrategy) {
         this.targetingStrategy = targetingStrategy;
     }
 

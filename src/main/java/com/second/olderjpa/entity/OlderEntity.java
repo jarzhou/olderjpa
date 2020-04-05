@@ -1,5 +1,6 @@
 package com.second.olderjpa.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -18,9 +19,9 @@ public class OlderEntity {
     private String olderName;
     // 姓名
 
-    @Column(nullable = false,length = 255)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @Column(nullable = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date birthday;
     //出生日期：
 
@@ -48,15 +49,15 @@ public class OlderEntity {
     private Integer groupId;
     //int,分组：
 
-    @Column(nullable = true,length = 255)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @Column(nullable = true)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date checkinDate;
     //date,入住时间：
 
-    @Column(nullable = true,length = 255)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
-    //@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @Column(nullable = true)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date leaveDate;
     //date,离开时间：
 

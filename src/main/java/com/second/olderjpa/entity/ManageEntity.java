@@ -1,5 +1,6 @@
 package com.second.olderjpa.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -18,7 +19,7 @@ public class ManageEntity {
     private Integer manageId;
 
     //工号
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    //@GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(nullable = false,unique = true)
     private String workerNumber;
     //姓名
@@ -28,8 +29,9 @@ public class ManageEntity {
     @Column(nullable = false)
     private String managePassword;
     //入职时间
-    @Column(length = 255, unique = false)
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @Column(unique = false)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date workTime;
     //工作评级：
     @Column(length = 40, unique = false,nullable = false)
