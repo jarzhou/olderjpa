@@ -17,8 +17,7 @@ public class BodyDataServiceImpl implements BodyDataService {
     private DataService dataService;
     @Override
     public BodyDataEntity save(BodyDataEntity bodyDataEntity){
-        String bmiTask = dataService.findMarksByValue(bodyDataEntity.getBmi());
-
+        String bmiTask = dataService.findBmiMark(bodyDataEntity.getBmi());
         bodyDataEntity.setPhysicalAssessment(bmiTask);
         return bodyDataRepository.save(bodyDataEntity);
     }

@@ -8,11 +8,11 @@ import javax.persistence.*;
 public class VisceralFatEntity {
     @Id
     @Column(nullable = false,length = 40)
-    private Integer sleepTimeId;
+    private Integer visceralFatId;
 
     //内脏脂肪
     @Column(nullable = false,length = 40)
-    private float sleepTime;
+    private float visceralFat;
 
     //评级：
     @Column(nullable = false,length = 40)
@@ -23,20 +23,20 @@ public class VisceralFatEntity {
     @Column(columnDefinition="TEXT",nullable = true)
     private String targetingStrategy;
 
-    public Integer getSleepTimeId() {
-        return sleepTimeId;
+    public Integer getVisceralFatId() {
+        return visceralFatId;
     }
 
-    public void setSleepTimeId(Integer sleepTimeId) {
-        this.sleepTimeId = sleepTimeId;
+    public void setVisceralFatId(Integer visceralFatId) {
+        this.visceralFatId = visceralFatId;
     }
 
-    public float getSleepTime() {
-        return sleepTime;
+    public float getVisceralFat() {
+        return visceralFat;
     }
 
-    public void setSleepTime(float sleepTime) {
-        this.sleepTime = sleepTime;
+    public void setVisceralFat(float visceralFat) {
+        this.visceralFat = visceralFat;
     }
 
     public String getJudgeLevel() {

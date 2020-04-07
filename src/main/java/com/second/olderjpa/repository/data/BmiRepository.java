@@ -8,5 +8,4 @@ public interface BmiRepository extends JpaRepository<BmiEntity,Integer>{
 //    @Modifying
 //    @Transactional
     BmiEntity findBmiEntityByMaxValueBetween(float min,float max);
-
 }

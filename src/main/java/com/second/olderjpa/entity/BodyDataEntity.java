@@ -15,9 +15,11 @@ public class BodyDataEntity{
     @Column(name = "body_id" ,nullable = false)
     private Integer bodyId;
 
-    @Column(nullable = false)
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @Column(nullable = true)
+    //@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    @Temporal(TemporalType.DATE)
+    // @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date dataDate;
 
     //老人id
@@ -72,7 +74,7 @@ public class BodyDataEntity{
     @Column(nullable = true,length = 40)
     private String physicalAssessment;
 
-    //char(表5：康养策略：)ABCDEABCD
+    //char(表5：康养策略：)
     @Column(nullable = true,length = 40)
     private String systemStrategy;
 

@@ -4,4 +4,5 @@ import com.second.olderjpa.entity.data.MuscleContentEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MuscleContentRepository extends JpaRepository<MuscleContentEntity,Integer> {
+    MuscleContentEntity findMuscleContentEntityByMuscleContentBetween(float min,float max);
 }
