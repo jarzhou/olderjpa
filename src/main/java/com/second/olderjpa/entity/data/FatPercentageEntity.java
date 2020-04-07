@@ -1,4 +1,4 @@
-package com.second.olderjpa.entity;
+package com.second.olderjpa.entity.data;
 
 
 import javax.persistence.*;
@@ -16,7 +16,7 @@ public class FatPercentageEntity {
 
     //评级：
     @Column(nullable = false,length = 40)
-    private String judge_level;
+    private String judgeLevel;
 
     //针对策略：
     @Lob
@@ -28,7 +28,7 @@ public class FatPercentageEntity {
         return "FatPercentageEntity{" +
                 "fatPercentageId=" + fatPercentageId +
                 ", fatPercentage=" + fatPercentage +
-                ", judge_level='" + judge_level + '\'' +
+                ", judgeLevel='" + judgeLevel + '\'' +
                 ", targetingStrategy='" + targetingStrategy + '\'' +
                 '}';
     }
@@ -49,12 +49,12 @@ public class FatPercentageEntity {
         this.fatPercentage = fatPercentage;
     }
 
-    public String getJudge_level() {
-        return judge_level;
+    public String getJudgeLevel() {
+        return judgeLevel;
     }
 
-    public void setJudge_level(String judge_level) {
-        this.judge_level = judge_level;
+    public void setJudgeLevel(String judgeLevel) {
+        this.judgeLevel = judgeLevel;
     }
 
     public String getTargetingStrategy() {

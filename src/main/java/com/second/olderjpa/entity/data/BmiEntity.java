@@ -1,4 +1,4 @@
-package com.second.olderjpa.entity;
+package com.second.olderjpa.entity.data;
 import javax.persistence.*;
 import javax.xml.soap.Text;
 

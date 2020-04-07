@@ -1,6 +1,6 @@
 package com.second.olderjpa.service;
 
-public interface BmiService {
+public interface DataService {
 
     String findMarksByValue(String value);
 
