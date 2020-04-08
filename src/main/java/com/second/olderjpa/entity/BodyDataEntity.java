@@ -23,9 +23,13 @@ public class BodyDataEntity{
     private Date dataDate;
 
     //老人id
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.LAZY,cascade={CascadeType.MERGE})
     @JoinColumn(name = "older_id", nullable = false)
     private OlderEntity OlderEntity;
+
+
+    @Column(name="older_id", updatable=false, insertable=false)
+    private String olderId;//用户id
 
     //身高
     @Column(nullable = true,length = 40)
@@ -68,7 +72,7 @@ public class BodyDataEntity{
 
     //睡眠时长
     @Column(nullable = true,length = 40)
-    private String sleepTime;
+    private String sleepTimer;
 
     //身体评估：
     @Column(nullable = true,length = 40)
@@ -99,12 +103,20 @@ public class BodyDataEntity{
         this.dataDate = dataDate;
     }
 
-    public com.second.olderjpa.entity.OlderEntity getOlderEntity() {
-        return OlderEntity;
+//    public com.second.olderjpa.entity.OlderEntity getOlderEntity() {
+//        return OlderEntity;
+//    }
+//
+//    public void setOlderEntity(com.second.olderjpa.entity.OlderEntity olderEntity) {
+//        OlderEntity = olderEntity;
+//    }
+
+    public String getOlderId() {
+        return olderId;
     }
 
-    public void setOlderEntity(com.second.olderjpa.entity.OlderEntity olderEntity) {
-        OlderEntity = olderEntity;
+    public void setOlderId(String olderId) {
+        this.olderId = olderId;
     }
 
     public String getTall() {
@@ -188,11 +200,11 @@ public class BodyDataEntity{
     }
 
     public String getSleepTime() {
-        return sleepTime;
+        return sleepTimer;
     }
 
     public void setSleepTime(String sleepTime) {
-        this.sleepTime = sleepTime;
+        this.sleepTimer = sleepTime;
     }
 
     public String getPhysicalAssessment() {
