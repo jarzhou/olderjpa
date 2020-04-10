@@ -11,8 +11,11 @@ public class BasalMetabolismEntity {
     private Integer basalMetabolismId;
 
     //基础代谢
+    //数值区间：30+—20；
     @Column(nullable = false,length = 40)
-    private float basalMetabolism;
+    private Float minValue;
+    @Column(nullable = false,length = 40)
+    private Float maxValue;
 
     //评级：
     @Column(nullable = false,length = 40)
@@ -31,12 +34,20 @@ public class BasalMetabolismEntity {
         this.basalMetabolismId = basalMetabolismId;
     }
 
-    public float getBasalMetabolism() {
-        return basalMetabolism;
+    public Float getMinValue() {
+        return minValue;
     }
 
-    public void setBasalMetabolism(float basalMetabolism) {
-        this.basalMetabolism = basalMetabolism;
+    public void setMinValue(Float minValue) {
+        this.minValue = minValue;
+    }
+
+    public Float getMaxValue() {
+        return maxValue;
+    }
+
+    public void setMaxValue(Float maxValue) {
+        this.maxValue = maxValue;
     }
 
     public String getJudgeLevel() {

@@ -1,5 +1,6 @@
 package com.second.olderjpa.service.serviceImpl;
 
+import com.second.olderjpa.dto.BodyDataQuery;
 import com.second.olderjpa.entity.BodyDataEntity;
 import com.second.olderjpa.repository.BodyDataRepository;
 import com.second.olderjpa.repository.data.BasalMetabolismRepository;
@@ -24,20 +25,24 @@ public class BodyDataServiceImpl implements BodyDataService {
 
     @Override
     //计算所有指数的总评分
-    public Boolean save(BodyDataEntity bodyDataEntity){
-        int bmiMark = Integer.valueOf(dataService.findBmiMark(bodyDataEntity.getBmi()));
-        int basalMetabolismMark = Integer.valueOf(dataService.findBasalMetabolismMark(bodyDataEntity.getBasalMetabolism()));
-        int boneMask = Integer.valueOf(dataService.findBoneMask(bodyDataEntity.getBoneMass()));
-        int fatPercentageMark = Integer.valueOf(dataService.findFatPercentageMark(bodyDataEntity.getFatPercentage()));
-        int heartRateMark= Integer.valueOf(dataService.findHeartRateMark(bodyDataEntity.getHeartRate()));
-        int muscleContentMark  = Integer.valueOf(dataService.findMuscleContentMark(bodyDataEntity.getMuscleContent()));
-        int WaterMask = Integer.valueOf( dataService.findWaterMask(bodyDataEntity.getWaterContent()));
-        int VisceralFatMask = Integer.valueOf(dataService.findVisceralFatMask(bodyDataEntity.getVisceralFat()));
-        int sleepTimeMark = Integer.valueOf(dataService.findSleepTimeMark(bodyDataEntity.getSleepTime()));
+    public Boolean save(BodyDataEntity bodyDataQuery){
+        int bmiMark = Integer.valueOf(dataService.findBmiMark(bodyDataQuery.getBmi()));
+        int basalMetabolismMark = Integer.valueOf(dataService.findBasalMetabolismMark(bodyDataQuery.getBasalMetabolism()));
+        int boneMask = Integer.valueOf(dataService.findBoneMask(bodyDataQuery.getBoneMass()));
+        int fatPercentageMark = Integer.valueOf(dataService.findFatPercentageMark(bodyDataQuery.getFatPercentage()));
+        int heartRateMark= Integer.valueOf(dataService.findHeartRateMark(bodyDataQuery.getHeartRate()));
+        int muscleContentMark  = Integer.valueOf(dataService.findMuscleContentMark(bodyDataQuery.getMuscleContent()));
+        int WaterMask = Integer.valueOf( dataService.findWaterMask(bodyDataQuery.getWaterContent()));
+        int VisceralFatMask = Integer.valueOf(dataService.findVisceralFatMask(bodyDataQuery.getVisceralFat()));
+        int sleepTimeMark = Integer.valueOf(dataService.findSleepTimeMark(bodyDataQuery.getSleepTimer()));
         String Task = String.valueOf((bmiMark + basalMetabolismMark +
                 boneMask + fatPercentageMark + heartRateMark + muscleContentMark +
                 WaterMask + VisceralFatMask + sleepTimeMark)/9*20);
-        bodyDataEntity.setPhysicalAssessment(Task);
+//        BodyDataEntity bodyDataEntity = new BodyDataEntity();
+        bodyDataQuery.setPhysicalAssessment(Task);
+//        bodyDataEntity.setBasalMetabolism(bodyDataQuery.getBasalMetabolism());
+//        bodyDataEntity.setBmi(bodyDataQuery.getBmi());
+//        bodyDataEntity.setBodyId(bodyDataQuery.getBodyId());
         return true;
     }
     @Override
@@ -70,4 +75,7 @@ public class BodyDataServiceImpl implements BodyDataService {
 
         return list;
     }
+
+
 }
+

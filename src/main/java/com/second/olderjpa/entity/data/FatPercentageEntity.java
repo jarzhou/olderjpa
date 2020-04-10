@@ -11,8 +11,11 @@ public class FatPercentageEntity {
     private Integer fatPercentageId;
 
     //体脂率
+    //数值区间：30+—20；
     @Column(nullable = false,length = 40)
-    private float fatPercentage;
+    private Float minValue;
+    @Column(nullable = false,length = 40)
+    private Float maxValue;
 
     //评级：
     @Column(nullable = false,length = 40)
@@ -23,15 +26,6 @@ public class FatPercentageEntity {
     @Column(columnDefinition="TEXT",nullable = true)
     private String targetingStrategy;
 
-    @Override
-    public String toString() {
-        return "FatPercentageEntity{" +
-                "fatPercentageId=" + fatPercentageId +
-                ", fatPercentage=" + fatPercentage +
-                ", judgeLevel='" + judgeLevel + '\'' +
-                ", targetingStrategy='" + targetingStrategy + '\'' +
-                '}';
-    }
 
     public Integer getFatPercentageId() {
         return fatPercentageId;
@@ -41,12 +35,21 @@ public class FatPercentageEntity {
         this.fatPercentageId = fatPercentageId;
     }
 
-    public float getFatPercentage() {
-        return fatPercentage;
+
+    public Float getMinValue() {
+        return minValue;
     }
 
-    public void setFatPercentage(float fatPercentage) {
-        this.fatPercentage = fatPercentage;
+    public void setMinValue(Float minValue) {
+        this.minValue = minValue;
+    }
+
+    public Float getMaxValue() {
+        return maxValue;
+    }
+
+    public void setMaxValue(Float maxValue) {
+        this.maxValue = maxValue;
     }
 
     public String getJudgeLevel() {

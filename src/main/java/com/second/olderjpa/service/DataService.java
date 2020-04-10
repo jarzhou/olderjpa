@@ -21,5 +21,7 @@ public interface DataService {
     String findVisceralFatMask(String value);
     //获取waterContent mask
     String findWaterMask(String value);
+    //获取BMI JudgeLevel mask
+    String findMask(String value);
 
 }

@@ -199,12 +199,12 @@ public class BodyDataEntity{
         this.heartRate = heartRate;
     }
 
-    public String getSleepTime() {
+    public String getSleepTimer() {
         return sleepTimer;
     }
 
-    public void setSleepTime(String sleepTime) {
-        this.sleepTimer = sleepTime;
+    public void setSleepTimer(String sleepTimer) {
+        this.sleepTimer = sleepTimer;
     }
 
     public String getPhysicalAssessment() {

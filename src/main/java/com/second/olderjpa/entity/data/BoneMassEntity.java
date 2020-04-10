@@ -11,8 +11,11 @@ public class BoneMassEntity {
     private Integer boneMassId;
 
     //骨量
+    //数值区间：30+—20；
     @Column(nullable = false,length = 40)
-    private float    boneMass;
+    private Float minValue;
+    @Column(nullable = false,length = 40)
+    private Float maxValue;
 
     //评级：
     @Column(nullable = false,length = 40)
@@ -32,12 +35,20 @@ public class BoneMassEntity {
         this.boneMassId = boneMassId;
     }
 
-    public float getBoneMass() {
-        return boneMass;
+    public Float getMinValue() {
+        return minValue;
     }
 
-    public void setBoneMass(float boneMass) {
-        this.boneMass = boneMass;
+    public void setMinValue(Float minValue) {
+        this.minValue = minValue;
+    }
+
+    public Float getMaxValue() {
+        return maxValue;
+    }
+
+    public void setMaxValue(Float maxValue) {
+        this.maxValue = maxValue;
     }
 
     public String getJudgeLevel() {

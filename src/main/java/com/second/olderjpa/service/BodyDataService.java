@@ -1,5 +1,6 @@
 package com.second.olderjpa.service;
 
+import com.second.olderjpa.dto.BodyDataQuery;
 import com.second.olderjpa.entity.BodyDataEntity;
 
 import java.util.ArrayList;

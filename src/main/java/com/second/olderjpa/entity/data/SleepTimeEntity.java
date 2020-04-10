@@ -10,8 +10,11 @@ public class SleepTimeEntity{
     private Integer sleepTimeId;
 
     //睡眠时长
+    //数值区间：30+—20；
     @Column(nullable = false,length = 40)
-    private float sleepTime;
+    private Float minValue;
+    @Column(nullable = false,length = 40)
+    private Float maxValue;
 
     //评级：
     @Column(nullable = false,length = 40)
@@ -30,12 +33,20 @@ public class SleepTimeEntity{
         this.sleepTimeId = sleepTimeId;
     }
 
-    public float getSleepTime() {
-        return sleepTime;
+    public Float getMinValue() {
+        return minValue;
     }
 
-    public void setSleepTime(float sleepTime) {
-        this.sleepTime = sleepTime;
+    public void setMinValue(Float minValue) {
+        this.minValue = minValue;
+    }
+
+    public Float getMaxValue() {
+        return maxValue;
+    }
+
+    public void setMaxValue(Float maxValue) {
+        this.maxValue = maxValue;
     }
 
     public String getJudgeLevel() {

@@ -4,5 +4,5 @@ import com.second.olderjpa.entity.data.WaterContentEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface WaterContentRepository extends JpaRepository<WaterContentEntity,Integer> {
-    WaterContentEntity findWaterContentEntityByWaterContentBetween(float min,float max);
+    WaterContentEntity findAllByMaxValueLessThanEqualAndMinValueGreaterThan(float value1,float value2);
 }

@@ -11,9 +11,11 @@ public class WaterContentEntity {
     private Integer waterContentId;
 
     //水分
+    //数值区间：30+—20；
     @Column(nullable = false,length = 40)
-    private float waterContent;
-
+    private Float minValue;
+    @Column(nullable = false,length = 40)
+    private Float maxValue;
     //评级：
     @Column(nullable = false,length = 40)
     private String judgeLevel;
@@ -31,12 +33,20 @@ public class WaterContentEntity {
         this.waterContentId = waterContentId;
     }
 
-    public float getWaterContent() {
-        return waterContent;
+    public Float getMinValue() {
+        return minValue;
     }
 
-    public void setWaterContent(float waterContent) {
-        this.waterContent = waterContent;
+    public void setMinValue(Float minValue) {
+        this.minValue = minValue;
+    }
+
+    public Float getMaxValue() {
+        return maxValue;
+    }
+
+    public void setMaxValue(Float maxValue) {
+        this.maxValue = maxValue;
     }
 
     public String getJudgeLevel() {

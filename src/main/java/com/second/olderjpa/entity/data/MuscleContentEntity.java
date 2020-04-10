@@ -11,9 +11,12 @@ public class MuscleContentEntity {
     @Column(nullable = false,length = 40)
     private Integer muscleContentId;
 
-    //心率
+    //肌肉含量
+    //数值区间：30+—20；
     @Column(nullable = false,length = 40)
-    private float muscleContent;
+    private Float minValue;
+    @Column(nullable = false,length = 40)
+    private Float maxValue;
 
     //评级：
     @Column(nullable = false,length = 40)
@@ -32,12 +35,20 @@ public class MuscleContentEntity {
         this.muscleContentId = muscleContentId;
     }
 
-    public float getMuscleContent() {
-        return muscleContent;
+    public Float getMinValue() {
+        return minValue;
     }
 
-    public void setMuscleContent(float muscleContent) {
-        this.muscleContent = muscleContent;
+    public void setMinValue(Float minValue) {
+        this.minValue = minValue;
+    }
+
+    public Float getMaxValue() {
+        return maxValue;
+    }
+
+    public void setMaxValue(Float maxValue) {
+        this.maxValue = maxValue;
     }
 
     public String getJudgeLevel() {

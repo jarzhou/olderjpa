@@ -4,5 +4,5 @@ import com.second.olderjpa.entity.data.BasalMetabolismEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BasalMetabolismRepository extends JpaRepository<BasalMetabolismEntity,Integer> {
-    BasalMetabolismEntity findBasalMetabolismEntityByBasalMetabolismBetween(float min,float max);
+    BasalMetabolismEntity findAllByMaxValueLessThanEqualAndMinValueGreaterThan(float value1,float value2);
 }
