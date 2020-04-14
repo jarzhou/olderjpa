@@ -16,7 +16,7 @@ public class ManageEntity {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(nullable = false,unique = true)
-    private Integer manageId;
+    private Integer id;
 
     //工号
     //@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -48,27 +48,13 @@ public class ManageEntity {
     @Column(length = 20, unique = false,nullable = false)
     private Integer groupId;
 
-    @Override
-    public String toString() {
-        return "ManageEntity{" +
-                "manageId=" + manageId +
-                ", workerNumber='" + workerNumber + '\'' +
-                ", workerName='" + workerName + '\'' +
-                ", managePassword='" + managePassword + '\'' +
-                ", workTime=" + workTime +
-                ", workLevel='" + workLevel + '\'' +
-                ", workerPhone='" + workerPhone + '\'' +
-                ", workerAddress='" + workerAddress + '\'' +
-                ", groupId=" + groupId +
-                '}';
+
+    public Integer getId() {
+        return id;
     }
 
-    public Integer getManageId() {
-        return manageId;
-    }
-
-    public void setManageId(Integer manageId) {
-        this.manageId = manageId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getWorkerNumber() {
