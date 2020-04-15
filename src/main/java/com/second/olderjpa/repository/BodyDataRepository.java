@@ -29,5 +29,7 @@ public interface BodyDataRepository extends JpaRepository<BodyDataEntity, Intege
     //时间间隔的数据
     List<BodyDataEntity> findAllByDataDateBetween(Date date1, Date date2);
 
+    //g根据评级查询
+     List<BodyDataEntity> findAllByPhysicalAssessmentBetween(String low,String high);
 
 }

@@ -6,8 +6,10 @@ import com.second.olderjpa.service.BodyDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.xml.crypto.Data;
 import java.util.*;
 
@@ -16,7 +18,7 @@ import java.util.*;
 public class BodyDataController {
     @Autowired
     BodyDataRepository bodyDataRepository;
-
+    @Resource
     private BodyDataService bodyDataService;
 
 
@@ -33,6 +35,7 @@ public class BodyDataController {
 //        System.out.println(bodyDataRepository.findAll());
         return bodyDataRepository.findAll(pageRequest);
     }
+
     /**
      * 查出所有body数据
      * @return
@@ -61,5 +64,19 @@ public class BodyDataController {
     @GetMapping("/saveBodyData")
     public List<HashMap<String,Integer>> findOlderHealthMap(@RequestParam Date date){
         return  bodyDataService.findAllCount(date);
+    }
+
+    /**
+     * 计算某个日期所有评级各自的数量
+     * @param
+     * @return
+     */
+    @PostMapping("/findAllByClass")
+    public List<BodyDataEntity> findAllByClass(@Param("low") String low, @Param("high") String high){
+//        low = "0";
+//        high = "7";
+            System.out.println("收到空值");
+        System.out.println(low+"和"+high);
+        return  bodyDataService.findAllByTask(low ,high);
     }
 }

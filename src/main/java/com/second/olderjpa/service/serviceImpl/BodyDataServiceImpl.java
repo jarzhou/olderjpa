@@ -37,7 +37,7 @@ public class BodyDataServiceImpl implements BodyDataService {
         int sleepTimeMark = Integer.valueOf(dataService.findSleepTimeMark(bodyDataQuery.getSleepTimer()));
         String Task = String.valueOf((bmiMark + basalMetabolismMark +
                 boneMask + fatPercentageMark + heartRateMark + muscleContentMark +
-                WaterMask + VisceralFatMask + sleepTimeMark)/9*20);
+                WaterMask + VisceralFatMask + sleepTimeMark)/9*2);
 //        BodyDataEntity bodyDataEntity = new BodyDataEntity();
         bodyDataQuery.setPhysicalAssessment(Task);
 //        bodyDataEntity.setBasalMetabolism(bodyDataQuery.getBasalMetabolism());
@@ -74,6 +74,11 @@ public class BodyDataServiceImpl implements BodyDataService {
         list.add(hashMap4);
 
         return list;
+    }
+    @Override
+    //
+    public List<BodyDataEntity> findAllByTask(String low ,String high){
+        return bodyDataRepository.findAllByPhysicalAssessmentBetween( low, high);
     }
 
 

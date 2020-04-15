@@ -12,4 +12,6 @@ public interface BodyDataService {
     Boolean save(BodyDataEntity bodyDataEntity);
 
     List<HashMap<String ,Integer>> findAllCount(Date date);
+
+    List<BodyDataEntity> findAllByTask(String low,String high);
 }
