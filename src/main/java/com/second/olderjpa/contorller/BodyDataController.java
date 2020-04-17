@@ -16,7 +16,7 @@ import java.util.*;
 @RestController
 @RequestMapping("/BodyData")
 public class BodyDataController {
-    @Autowired
+    @Resource
     BodyDataRepository bodyDataRepository;
     @Resource
     private BodyDataService bodyDataService;
@@ -71,7 +71,7 @@ public class BodyDataController {
      * @param
      * @return
      */
-    @PostMapping("/findAllByClass")
+    @GetMapping("/findAllByClass")
     public List<BodyDataEntity> findAllByClass(@Param("low") String low, @Param("high") String high){
 //        low = "0";
 //        high = "7";

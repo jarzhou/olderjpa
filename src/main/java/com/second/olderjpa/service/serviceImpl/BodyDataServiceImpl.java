@@ -76,7 +76,7 @@ public class BodyDataServiceImpl implements BodyDataService {
         return list;
     }
     @Override
-    //
+    //根据data评分查找bodyData
     public List<BodyDataEntity> findAllByTask(String low ,String high){
         return bodyDataRepository.findAllByPhysicalAssessmentBetween( low, high);
     }

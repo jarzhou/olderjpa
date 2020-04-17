@@ -1,5 +1,6 @@
 package com.second.olderjpa.service.serviceImpl;
 
+import com.second.olderjpa.dto.data.BmiQuery;
 import com.second.olderjpa.entity.data.*;
 import com.second.olderjpa.repository.data.*;
 import com.second.olderjpa.service.DataService;
@@ -84,18 +85,49 @@ public class DataServiceImpl implements DataService {
         WaterContentEntity waterContent = waterContentRepository.findAllByMaxValueLessThanEqualAndMinValueGreaterThan(min, max);
         return waterContent.getJudgeLevel();
     }
-    /*
-    获取BMI JudgeLevel mask
-     */
-    public String findMask(String value) {
-        float max = Float.valueOf(value);
-        float min = Float.valueOf(value);
-        return bmiRepository.findAllByMaxValueLessThanEqualAndMinValueGreaterThan(min,max).getJudgeLevel();
-    }
-//    //设置bmi标准
-//    public BmiEntity setBmi(){
-//        return bmiRepository.saveAll(bmiEntity);
+//    //获取BMI JudgeLevel mask
+//    public String findMask(String value) {
+//        float max = Float.valueOf(value);
+//        float min = Float.valueOf(value);
+//        return bmiRepository.findAllByMaxValueLessThanEqualAndMinValueGreaterThan(min,max).getJudgeLevel();
 //    }
+    //设置bmi标准
+    public BmiEntity setBmi(BmiEntity bmiEntity){
+        return bmiRepository.save(bmiEntity);
+    }
+    //设置FatPercentage标准
+    public FatPercentageEntity setFatPercentage(FatPercentageEntity fatPercentageEntity){
+        return fatPercentageRepository.save(fatPercentageEntity);
+    }
+    //设置BasalMetabolism标准
+    public BasalMetabolismEntity setBasalMetabolism(BasalMetabolismEntity basalMetabolismEntity){
+        return basalMetabolismRepository.save(basalMetabolismEntity);
+    }
+    //设置heartRate标准
+    public HeartRateEntity setHeartRate(HeartRateEntity heartRateEntity){
+        return heartRateRepository.save(heartRateEntity);
+    }
+    //设置MuscleContent标准
+    public MuscleContentEntity setMuscleContent(MuscleContentEntity muscleContentEntity){
+        return muscleContentRepository.save(muscleContentEntity);
+    }
+    //设置sleepTime标准
+    public SleepTimeEntity setSleepTime(SleepTimeEntity sleepTimeEntity){
+        return sleepTimeRepository.save(sleepTimeEntity);
+    }
+    //设置boneMass 标准
+    public BoneMassEntity setBoneMass(BoneMassEntity boneMassEntity){
+        return boneMassRepository.save(boneMassEntity);
+    }
+    //设置visceralFat标准
+    public VisceralFatEntity setVisceralFat(VisceralFatEntity visceralFatEntity){
+        return visceralFatRepository.save(visceralFatEntity);
+    }
+    //设置waterContent 标准
+    public WaterContentEntity setWaterContent(WaterContentEntity waterContentEntity){
+        return waterContentRepository.save(waterContentEntity);
+    }
+
 
 
 }

@@ -17,7 +17,6 @@ public class ManageServiceImpl implements ManageService {
     private ManageRepository manageRepository;
 
     public ManageEntity findAllById(Integer id){
-
     return  manageRepository.findAllById(id);
     }
 }
