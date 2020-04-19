@@ -3,10 +3,13 @@ package com.second.olderjpa.contorller;
 import com.second.olderjpa.dto.data.*;
 import com.second.olderjpa.entity.data.*;
 import com.second.olderjpa.repository.data.BmiRepository;
+import com.second.olderjpa.repository.data.FatPercentageRepository;
 import com.second.olderjpa.service.DataService;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -14,6 +17,8 @@ import java.util.List;
 public class DataController {
     @Resource
     private DataService dataService;
+    @Resource
+    private FatPercentageRepository fatPercentageRepository;
 
     @PostMapping("/setBmi")
     public BmiEntity setBmiEntity(@RequestBody BmiQuery bmiQuery){
@@ -27,17 +32,30 @@ public class DataController {
         dataService.setBmi(bmiEntity);
         return bmiEntity;
     }
+//    @PostMapping("/setFatPercentage")//设置FatPercentage标准
+//    public boolean setFatPercentage(@Param("fat")  Object o){
+//        System.out.println(o);
+//        return true;
+//    }
     @PostMapping("/setFatPercentage")//设置FatPercentage标准
-    public FatPercentageEntity setFatPercentage(@RequestBody FatPercentageQuery FatPercentageQuery){
+    public FatPercentageEntity setFatPercentage(@RequestBody FatPercentageQuery fatPercentageQuery){
         //Integer id = FatPercentageQuery.getFatPercentageId();
         FatPercentageEntity fatPercentageEntity = new FatPercentageEntity();
-        fatPercentageEntity.setFatPercentageId(FatPercentageQuery.getFatPercentageId());
-        fatPercentageEntity.setJudgeLevel(FatPercentageQuery.getJudgeLevel());
-        fatPercentageEntity.setMaxValue(FatPercentageQuery.getMaxValue());
-        fatPercentageEntity.setMinValue(FatPercentageQuery.getMinValue());
-        fatPercentageEntity.setTargetingStrategy(FatPercentageQuery.getTargetingStrategy());
+        fatPercentageEntity.setFatPercentageId(fatPercentageQuery.getFatPercentageId());
+        fatPercentageEntity.setJudgeLevel(fatPercentageQuery.getJudgeLevel());
+        fatPercentageEntity.setMaxValue(fatPercentageQuery.getMaxValue());
+        fatPercentageEntity.setMinValue(fatPercentageQuery.getMinValue());
+        fatPercentageEntity.setTargetingStrategy(fatPercentageQuery.getTargetingStrategy());
+        fatPercentageEntity.setNumber(fatPercentageQuery.getNumber());
+        fatPercentageEntity.setMean(fatPercentageQuery.getMean());
+        fatPercentageEntity.setWork(fatPercentageQuery.getWork());
         dataService.setFatPercentage(fatPercentageEntity);
         return fatPercentageEntity;
+    }
+    @GetMapping("/findFatPercentage")//查找FatPercentage
+    public List<FatPercentageEntity> findFatPercentage(){
+        List<FatPercentageEntity> list = fatPercentageRepository.findAll();
+        return list;
     }
     @PostMapping("/setBasalMetabolism")//设置BasalMetabolism标准
     public BasalMetabolismEntity setBasalMetabolism(@RequestBody BasalMetabolismQuery basalMetabolismQuery){
