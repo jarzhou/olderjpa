@@ -3,14 +3,12 @@ package com.second.olderjpa.contorller;
 import com.second.olderjpa.entity.BodyDataEntity;
 import com.second.olderjpa.repository.BodyDataRepository;
 import com.second.olderjpa.service.BodyDataService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import javax.xml.crypto.Data;
 import java.util.*;
 
 @RestController
@@ -35,6 +33,7 @@ public class BodyDataController {
 //        System.out.println(bodyDataRepository.findAll());
         return bodyDataRepository.findAll(pageRequest);
     }
+
 
     /**
      * 查出所有body数据
@@ -65,9 +64,19 @@ public class BodyDataController {
     public List<HashMap<String,Integer>> findOlderHealthMap(@RequestParam Date date){
         return  bodyDataService.findAllCount(date);
     }
+    //查出某日的BodyDateEntity
+    @GetMapping("/findAllBodyDataByDay")
+    public List<BodyDataEntity> findAllBodyDataByDay(@RequestParam Date date){
+//        SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd");
+//        System.out.println(date);
+//        Date date1 = new Date();
+//        System.out.println(formatter.format(date1));
+//        System.out.println(bodyDataRepository.findAllByDataDateEquals(date1));
+        return  bodyDataRepository.findAllByDataDateEquals(date);
+    }
 
     /**
-     * 计算某个日期所有评级各自的数量
+     * findAllByClass
      * @param
      * @return
      */
