@@ -2,8 +2,7 @@ package com.second.olderjpa.contorller;
 
 import com.second.olderjpa.dto.data.*;
 import com.second.olderjpa.entity.data.*;
-import com.second.olderjpa.repository.data.BmiRepository;
-import com.second.olderjpa.repository.data.FatPercentageRepository;
+import com.second.olderjpa.repository.data.*;
 import com.second.olderjpa.service.DataService;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
@@ -19,15 +18,41 @@ public class DataController {
     private DataService dataService;
     @Resource
     private FatPercentageRepository fatPercentageRepository;
+    @Resource
+    private  BmiRepository bmiRepository;
+    @Resource
+    private BasalMetabolismRepository basalMetabolismRepository;
+    @Resource
+    private HeartRateRepository heartRateRepository;
+    @Resource
+    private MuscleContentRepository muscleContentRepository;
+    @Resource
+    private SleepTimeRepository sleepTimeRepository;
+    @Resource
+    private BoneMassRepository boneMassRepository;
+    @Resource
+    private VisceralFatRepository visceralFatRepository;
+    @Resource
+    private WaterContentRepository waterContentRepository;
 
+    @GetMapping("/findBmi")//查找bmi
+    public List<BmiEntity> findBmi(){
+        List<BmiEntity> list = bmiRepository.findAll();
+        return list;
+    }
     @PostMapping("/setBmi")
     public BmiEntity setBmiEntity(@RequestBody BmiQuery bmiQuery){
-        Integer id = bmiQuery.getBmiId();
+        String id = bmiQuery.getBmiId();
+        String x =bmiQuery.getJudgeLevel();
+        System.out.println(bmiQuery);
+        System.out.println(id);
+        System.out.println(x);
         BmiEntity bmiEntity = new BmiEntity();
         bmiEntity.setBmiId(bmiQuery.getBmiId());
         bmiEntity.setJudgeLevel(bmiQuery.getJudgeLevel());
         bmiEntity.setMaxValue(bmiQuery.getMaxValue());
         bmiEntity.setMinValue(bmiQuery.getMinValue());
+        bmiEntity.setNumber(bmiQuery.getNumber());
         bmiEntity.setTargetingStrategy(bmiQuery.getTargetingStrategy());
         dataService.setBmi(bmiEntity);
         return bmiEntity;
@@ -57,6 +82,11 @@ public class DataController {
         List<FatPercentageEntity> list = fatPercentageRepository.findAll();
         return list;
     }
+    @GetMapping("/findBasalMetabolism")//查找BasalMetabolism
+    public List<BasalMetabolismEntity> findBasalMetabolism(){
+        List<BasalMetabolismEntity> list = basalMetabolismRepository.findAll();
+        return list;
+    }
     @PostMapping("/setBasalMetabolism")//设置BasalMetabolism标准
     public BasalMetabolismEntity setBasalMetabolism(@RequestBody BasalMetabolismQuery basalMetabolismQuery){
         //Integer id = FatPercentageQuery.getFatPercentageId();
@@ -68,6 +98,11 @@ public class DataController {
         basalMetabolismEntity.setTargetingStrategy(basalMetabolismQuery.getTargetingStrategy());
         dataService.setBasalMetabolism(basalMetabolismEntity);
         return basalMetabolismEntity;
+    }
+    @GetMapping("/findHeartRate")//查找HeartRate
+    public List<HeartRateEntity> findHeartRate(){
+        List<HeartRateEntity> list = heartRateRepository.findAll();
+        return list;
     }
     @PostMapping("/setHeartRate")// 设置heartRate标准
     public HeartRateEntity setHeartRate(@RequestBody HeartRateQuery heartRateQuery){
@@ -81,6 +116,11 @@ public class DataController {
         dataService.setHeartRate(heartRateEntity);
         return heartRateEntity;
     }
+    @GetMapping("/findMuscleContent")//查找HeartRate
+    public List<MuscleContentEntity> findMuscleContent(){
+        List<MuscleContentEntity> list = muscleContentRepository.findAll();
+        return list;
+    }
     @PostMapping("/setMuscleContent")//设置MuscleContent标准
     public MuscleContentEntity setMuscleContent(@RequestBody MuscleContentQuery muscleContentQuery){
         //Integer id = FatPercentageQuery.getFatPercentageId();
@@ -93,7 +133,11 @@ public class DataController {
         dataService.setMuscleContent(muscleContentEntity);
         return muscleContentEntity;
     }
-
+    @GetMapping("/findSleepTime")//查找HeartRate
+    public List<SleepTimeEntity> findSleepTime(){
+        List<SleepTimeEntity> list = sleepTimeRepository.findAll();
+        return list;
+    }
     @PostMapping("/setSleepTime")   //设置sleepTime标准
     public SleepTimeEntity setSleepTime(@RequestBody SleepTimeQuery sleepTimeQuery){
         //Integer id = FatPercentageQuery.getFatPercentageId();
@@ -105,6 +149,11 @@ public class DataController {
         sleepTimeEntity.setTargetingStrategy(sleepTimeQuery.getTargetingStrategy());
         dataService.setSleepTime(sleepTimeEntity);
         return sleepTimeEntity;
+    }
+    @GetMapping("/findBoneMass")//查找HeartRate
+    public List<BoneMassEntity> findBoneMass(){
+        List<BoneMassEntity> list = boneMassRepository.findAll();
+        return list;
     }
     @PostMapping("/setBoneMass")    //设置boneMass 标准
     public BoneMassEntity setBoneMass(@RequestBody BoneMassQuery boneMassQuery){
@@ -118,6 +167,11 @@ public class DataController {
         dataService.setBoneMass(boneMassEntity);
         return boneMassEntity;
     }
+    @GetMapping("/findVisceralFat")//查找HeartRate
+    public List<VisceralFatEntity> findVisceralFat(){
+        List<VisceralFatEntity> list = visceralFatRepository.findAll();
+        return list;
+    }
     @PostMapping("/setVisceralFat")//设置visceralFat标准
     public VisceralFatEntity setVisceralFat(@RequestBody VisceralFatQuery visceralFatQuery){
         //Integer id = FatPercentageQuery.getFatPercentageId();
@@ -129,6 +183,11 @@ public class DataController {
         visceralFatEntity.setTargetingStrategy(visceralFatQuery.getTargetingStrategy());
         dataService.setVisceralFat(visceralFatEntity);
         return visceralFatEntity;
+    }
+    @GetMapping("/findWaterContent")//查找HeartRate
+    public List<WaterContentEntity> findWaterContent(){
+        List<WaterContentEntity> list = waterContentRepository.findAll();
+        return list;
     }
     @PostMapping("/setWaterContent")//设置waterContent 标准
     public WaterContentEntity setWaterContent(@RequestBody WaterContentQuery waterContentQuery){

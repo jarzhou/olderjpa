@@ -19,6 +19,7 @@ public class Login {
     private ManageService manageService;
     @Resource
     private ManageRepository manageRepository;
+
     @PostMapping("/getLogin")
     public boolean getLogin(@Param("id") String id,@Param("password") String password){
         int id1 = Integer.valueOf(id);

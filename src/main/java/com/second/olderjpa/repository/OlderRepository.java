@@ -10,4 +10,6 @@ public interface OlderRepository extends JpaRepository<OlderEntity,Integer> {
 
     //老人年龄范围的数据
     List<OlderEntity> findAllByBirthdayBetween(Date date1, Date date2);
+
+    OlderEntity findAllByOlderId(Integer id);
 }

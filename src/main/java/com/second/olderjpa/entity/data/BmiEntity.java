@@ -7,8 +7,8 @@ import javax.xml.soap.Text;
 public class BmiEntity {
     //id 用int 时间用date  其它char
     @Id
-    @Column(nullable = false,length = 40)
-    private Integer bmiId;
+    @Column(nullable = false,length = 40,unique = true)
+    private String bmiId;
 
     //数值区间：30+—20；
     @Column(nullable = false,length = 40)
@@ -20,17 +20,28 @@ public class BmiEntity {
     @Column(nullable = false,length = 40)
     private String judgeLevel;
 
+    //序号
+    @Column(nullable = false,length = 40)
+    private String number;
     //char(ABCDE)
     //针对策略：text
     @Lob
     @Column(columnDefinition="TEXT",nullable = true)
     private String targetingStrategy;
 
-    public Integer getBmiId() {
+    public String getBmiId() {
         return bmiId;
     }
 
-    public void setBmiId(Integer bmiId) {
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public void setBmiId(String bmiId) {
         this.bmiId = bmiId;
     }
 
